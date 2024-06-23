@@ -68,26 +68,26 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto my-6">
+    <div className="container mx-auto my-6 px-4 sm:px-4 lg:px-8">
       <ToastContainer />
       <h1 className="text-3xl font-bold">Catch All Domain Generator ✉</h1>
       <p>This is a simple generator for catch all domains.</p>
 
-      <div className="flex flex-row gap-4 w-full my-6">
-        <form className='flex flex-row gap-4 w-full' onSubmit={(e) => e.preventDefault()}>
-          <div className="w-1/2">
-            <label htmlFor="domain">Domain <span className='text-red-500'>With or without @</span></label>
-            <input className="bg-neutral-900 w-full py-1 px-2 rounded-md" placeholder='@example.com' type="text" id="domain" name="domain" value={domain} onChange={(e) => setDomain(e.target.value)} />
+      <div className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-4 w-full my-6">
+        <form className='flex flex-col sm:flex-col md:flex-row lg:flex-row gap-4 w-full' onSubmit={(e) => e.preventDefault()}>
+        <div className="w-full md:w-1/2">
+        <label htmlFor="domain">Domain</label>
+            <input className="bg-neutral-900 w-full py-1 px-2 rounded-md" placeholder='example.com' type="text" id="domain" name="domain" value={domain} onChange={(e) => setDomain(e.target.value)} />
           </div>
-          <div className="w-1/2">
-            <label htmlFor="subdomain">Numbers at the End <span className='text-red-500'>* Max 50</span></label>
+          <div className="w-full md:w-1/2">
+            <label htmlFor="subdomain">Numbers at the End</label>
             <input className="bg-neutral-900 w-full py-1 px-2 rounded-md" type="number" id="numbers" min={1} max={50} name="subdomain" value={numbers} onChange={handleNumbersChange} />
           </div>
-          <div className="w-1/2">
+          <div className="w-full md:w-1/2">
             <label htmlFor="subdomain">Quantity</label>
             <input className="bg-neutral-900 w-full py-1 px-2 rounded-md" type="number" id="quantity" name="subdomain" value={quantity} onChange={handleQuantityChange} />
           </div>
-          <div className="w-1/2 flex flex-col">
+          <div className="w-full md:w-1/2 flex flex-col">
             <label htmlFor="subdomain">Generate</label>
             <button className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded-md" onClick={() => generate(numbers, domain)}>Generate</button>
           </div>
